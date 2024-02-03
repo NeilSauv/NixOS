@@ -1,0 +1,12 @@
+*.7z
+tools/utils/.dir
+tools/utils/.cpy
+tools/utils/.recover
+/system/
+result
+flake.nix
+users/neil
+tools/vim/.vim/bundle/*
+!tools/vim/.vim/bundle/ayu.vim
+programs/git/default.nix
+
