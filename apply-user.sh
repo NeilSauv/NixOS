@@ -7,7 +7,6 @@ fi
 export NAME_USER="$1"
 
 files=(
-    "flake.nix:./flake.nix"
     "zsh.nix:programs/zsh/default.nix"
     "home.nix:users/$NAME_USER/home.nix"
 )
