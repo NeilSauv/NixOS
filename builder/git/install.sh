@@ -32,7 +32,7 @@ key_id=$(gpg --list-secret-keys --keyid-format LONG "$email" | grep sec | awk '{
 sed -e "s/USER_MAJ/$maj/g" -e "s/USER_EMAIL/$email/g" -e "s/USER_KEY/$key_id/g" "default.nix" > "../../programs/git/default.nix"
 
 ssh-keygen -t ed25519 -C "$email"
-str=$(cat ~/.ssh/ed25519.pub)
+str=$(cat ~/.ssh/id_ed25519.pub)
 echo "Copy the folowing string into github : $str\n"
 echo "Presse ENTER when done"
 read -r nothing
