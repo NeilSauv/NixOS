@@ -28,11 +28,13 @@ extract_tuple() {
 }
 
 pushd ~/.dotfiles
+
 mv ".git" ".gitsave"
 first=true
 if [ -d "users/$NAME_USER" ]
 then
     first=false
+else
     mkdir -p "users/$NAME_USER"
 fi
 
@@ -43,10 +45,10 @@ do
     sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "builder/$name" > "$path"
 done
 
-if [ $first = true ]
-then
-    home-manager switch --flake .
-fi
+#if [ $first = true ]
+#then
+#    home-manager switch --flake .
+#fi
 
 for script in "${install[@]}"
 do
