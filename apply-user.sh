@@ -14,6 +14,7 @@ files=(
 install=(
     "tools"
     "builder"
+    "users"
 )
 
 maj="$NAME_USER"
