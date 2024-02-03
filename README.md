@@ -10,6 +10,7 @@ https://www.youtube.com/watch?v=gAEvO8tnqnM
 
 ## Clone
 ```
+nix-shell -p git
 git clone https://github.com/NeilSauv2003/NixOS ~/.dotfiles
 ```
 
