@@ -33,9 +33,12 @@ Finally you just have to execute the following command in order to build your co
 ```
 cd ~/.dotfiles
 sudo ./apply-system.sh [User_name]
-reboot
+sudo ./apply-system.sh [User_name]
 
 cd ~/.dotfiles
+./apply-user.sh [User_name]
+# Put the ssh key generated on github
+rm ~/config/i3/config
 ./apply-user.sh [User_name]
 ./apply-user.sh [User_name]
 reboot
