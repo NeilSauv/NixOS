@@ -28,7 +28,19 @@ extract_tuple() {
 
 pushd ~/.dotfiles
 mv ".git" ".gitsave"
+first=true
+if [ -d "users/$NAME_USER" ]
+then
+    first=false
+fi
 $(./users/install.sh)
+
+if [ first = true ]
+then
+    pushd "/home/$NAME_USER/.dotfiles"
+    home-manager switch --flake .
+    popd
+fi
 
 for script in "${install[@]}"
 do
