@@ -114,16 +114,6 @@
     ];
 
   fonts.fontconfig.enable = true;
-  nixpkgs.overlays = [
-    (self: super: {
-      discord = super.discord.overrideAttrs (
-        _: { src = builtins.fetchTarball {
-          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-          sha256 = "0rcg7mcw2mqklpxj2ygxgg624zx3p2xq2b32anbfvkgfy2pkvfrp";
-        }; }
-      );
-    })
-  ];   
 
   programs = {
     home-manager.enable = true;
