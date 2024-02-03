@@ -8,7 +8,7 @@
 
     nix = {
         package = pkgs.nixFlakes;
-            extraOptions = ''
+        extraOptions = ''
             experimental-features = nix-command flakes
             '';
     };
@@ -81,7 +81,7 @@
 
 
     users.extraUsers.USER_NAME = {
-            extraGroups = [ "vboxusers" ];
+        extraGroups = [ "vboxusers" ];
     };
 
     users.extraGroups.vboxusers.members = [ "USER_NAME" ];
@@ -113,14 +113,20 @@
 
     system.stateVersion = "23.05";
 
-        systemd.services.ckbNextDaemon = {
-            description = "CKB Next Daemon";
-            after = [ "network.target" ];
-            wantedBy = [ "multi-user.target" ];
-            serviceConfig = {
-                ExecStart =
-                    "${pkgs.ckb-next}/bin/ckb-next-daemon";
-                Restart = "always";
-            };
+    systemd.services.ckb-next-daemon = {
+        description = "ckb-next daemon for Corsair keyboards and mice";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+            ExecStart = "${pkgs.ckb-next}/bin/ckb-next-daemon";
+            Restart = "always";
+# Assurez-vous que le service s'exécute en tant que root
+            User = "root";
+            Group = "root";
         };
+    };
+
+# Activer le service au démarrage
+    systemd.services.ckb-next-daemon.enable = true;
+
 }
