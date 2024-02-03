@@ -10,8 +10,7 @@ https://www.youtube.com/watch?v=gAEvO8tnqnM
 
 ## Clone
 ```
-cd
-git clone https://github.com/NeilSauv2003/NixOS .dotfiles
+git clone https://github.com/NeilSauv2003/NixOS ~/.dotfiles
 ```
 
 ## Switch to unstable
