@@ -9,4 +9,5 @@ users/neil
 tools/vim/.vim/bundle/*
 !tools/vim/.vim/bundle/ayu.vim
 programs/git/default.nix
+programs/zsh/default.nix
 
