@@ -12,6 +12,7 @@ fi
 pushd "/home/$NAME_USER/.dotfiles"
 mv ".git" ".gitsave"
 (./builder/system/install.sh)
+sed -e "s/USER_NAME/$NAME_USER/g" "builder/flake.nix" > "flake.nix"
 sudo nixos-rebuild switch --flake .#
 mv ".gitsave" ".git"
 popd
