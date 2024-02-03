@@ -34,6 +34,9 @@ Finally you just have to execute the following command in order to build your co
 cd ~/.dotfiles
 sudo ./apply-system.sh [User_name]
 reboot
+
+cd ~/.dotfiles
+./apply-user.sh [User_name]
 ./apply-user.sh [User_name]
 reboot
 ```

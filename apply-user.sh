@@ -8,13 +8,11 @@ export NAME_USER="$1"
 
 files=(
     "zsh.nix:programs/zsh/default.nix"
-    "home.nix:users/$NAME_USER/home.nix"
 )
 
 install=(
     "tools"
     "builder"
-    "users"
 )
 
 maj="$NAME_USER"
@@ -30,6 +28,7 @@ extract_tuple() {
 
 pushd ~/.dotfiles
 mv ".git" ".gitsave"
+$(./users/install.sh)
 
 for script in "${install[@]}"
 do
