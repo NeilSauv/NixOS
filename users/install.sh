@@ -6,5 +6,4 @@ then
     mkdir "$NAME_USER"
 fi
 
-sed 's/NAME_USER/$NAME_USER/g' .home.nix > "$NAME_USER/home.nix"
 cd ..
