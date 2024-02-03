@@ -9,6 +9,8 @@ then
     fi
     export NAME_USER="$1"
 fi
+
+nix-collect-garbage --delete-old
 pushd "/home/$NAME_USER/.dotfiles"
 mv ".git" ".gitsave"
 sed -e "s/USER_NAME/$NAME_USER/g" "builder/flake.nix" > "flake.nix"
