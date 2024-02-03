@@ -4,7 +4,7 @@ tools/utils/.cpy
 tools/utils/.recover
 /system/
 result
-flake.nix
+/flake.nix
 users/neil
 tools/vim/.vim/bundle/*
 !tools/vim/.vim/bundle/ayu.vim
