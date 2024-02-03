@@ -1,4 +1,4 @@
-mv "$@" ~/.trash
+mv -f "$@" ~/.trash
 echo "$(pwd)/" > ~/.dotfiles/tools/utils/.recover
 ARGS=""
 for arg in "$@"
