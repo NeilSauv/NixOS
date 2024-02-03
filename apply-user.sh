@@ -7,6 +7,7 @@ fi
 export NAME_USER="$1"
 
 files=(
+    "home.nix:users/$NAME_USER/home.nix"
     "zsh.nix:programs/zsh/default.nix"
 )
 
@@ -32,20 +33,8 @@ first=true
 if [ -d "users/$NAME_USER" ]
 then
     first=false
+    mkdir -p "users/$NAME_USER"
 fi
-$(./users/install.sh)
-
-if [ $first = true ]
-then
-    pushd "/home/$NAME_USER/.dotfiles"
-    home-manager switch --flake .
-    popd
-fi
-
-for script in "${install[@]}"
-do
-    (~/.dotfiles/$script/install.sh)
-done
 
 for tuple in "${files[@]}"
 do
@@ -53,6 +42,18 @@ do
     path=$(extract_tuple "$tuple" 1)
     sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "builder/$name" > "$path"
 done
+
+if [ $first = true ]
+then
+    home-manager switch --flake .
+fi
+
+for script in "${install[@]}"
+do
+    (~/.dotfiles/$script/install.sh)
+done
+
+
 
 
 if [[ $2 == "-d" ]]
