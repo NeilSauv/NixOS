@@ -15,7 +15,9 @@ sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "../builder/home.nix" >
 
 if [ $present = false ]
 then
+    pushd ~/.dotfiles
     home-manager switch --flake .
+    popd
 fi
 
 cd ..
