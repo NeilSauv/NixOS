@@ -19,8 +19,10 @@
     google-chrome
     flatpak
     libxcrypt
+    i3lock-color
     nodejs
     vim
+    imagemagick
     nix-ld
     bat
     ncurses

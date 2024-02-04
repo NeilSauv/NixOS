@@ -58,6 +58,7 @@
         alias prg='cd ~/.dotfiles/programs/'
         alias mk='clear; make'
         alias nixsh='vim ~/.dotfiles/builder/zsh.nix'
+        alias nixi3='vim ~/.dotfiles/programs/i3/default.nix'
         alias nixhome='vim ~/.dotfiles/builder/home.nix'
         alias val='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
         alias setdir='~/.dotfiles/tools/utils/setdir.sh'
