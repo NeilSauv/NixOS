@@ -69,7 +69,7 @@ in
                     "${modifier}+z" = "layout tabbed";
                     "${modifier}+e" = "layout toggle split";
                     "${modifier}+r" = "mode resize";
-                    "${modifier}+b" = "exec i3lock-color -i ${wallpaper}";
+                    "${modifier}+b" = "exec i3lock-color -i wallpaper.jpg -F --clock -S 0 --indicator --inside-color=ffffff11 ";
 
 # Screenshot
 # Copy to clipboard

@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     google-chrome
     flatpak
+    jetbrains.idea-ultimate
     libxcrypt
     i3lock-color
     nodejs
@@ -25,9 +26,12 @@
     imagemagick
     nix-ld
     bat
+    openjdk17
+    maven
     ncurses
     nix-index
     qemu
+    keychain
     valgrind
     glibc
     clipman
@@ -132,5 +136,6 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    JAVA_HOME = "${pkgs.openjdk17}";
   };
 }

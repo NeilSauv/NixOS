@@ -79,6 +79,10 @@
         export PGDATA="$HOME/postgres_data"
         export PGHOST="/tmp"
         export NAME_USER="USER_NAME"
+
+        eval $(keychain --eval --agents gpg,ssh id_ed25519)
+        eval $(keychain --eval --agents gpg --quiet 0xB17D0AED463C9DE9)
+
     '';
   };
 
