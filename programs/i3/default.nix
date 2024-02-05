@@ -3,6 +3,7 @@
 
 let
 wallpaper = "/$HOME/.dotfiles/wallpaper/wallpaper.jpg";
+wallpaper_lock = "/$HOME/.dotfiles/wallpaper/wallpaper_lock.jpg";
 in
 {
     programs.i3status.enable = true;
@@ -69,7 +70,7 @@ in
                     "${modifier}+z" = "layout tabbed";
                     "${modifier}+e" = "layout toggle split";
                     "${modifier}+r" = "mode resize";
-                    "${modifier}+b" = "exec i3lock-color -i wallpaper.jpg -F --clock -S 0 --indicator --inside-color=ffffff11 ";
+                    "${modifier}+b" = "exec i3lock-color -i ${wallpaper_lock} -F --clock -S 0 --indicator --inside-color=ffffff11 ";
 
 # Screenshot
 # Copy to clipboard

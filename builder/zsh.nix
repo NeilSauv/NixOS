@@ -42,7 +42,7 @@
         alias grep='grep --color -n'
         alias ccat='pygmentize -f terminal -g'
         alias epita='cd ~/EPITA'
-        alias tools='cd ~/.dotfiles/tools/tools'
+        alias tools='cd ~/.dotfiles/tools/utils'
         alias vimpath='cd ~/.dotfiles/tools/vim/.vim/bundle'
         alias nixvim='vim ~/.dotfiles/tools/vim/.vimrc'
         alias cpy='~/.dotfiles/tools/utils/copy.sh'
