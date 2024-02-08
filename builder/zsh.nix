@@ -72,6 +72,8 @@
         alias afsinit=~/.dotfiles/tools/afs/install.sh
         alias afs=~/afs
 
+        alias launcherManager=~/.config/rofi/launchers/find_launcher.sh
+
         export CFLAGS='-Wall -Wextra -Wvla -std=c99 -pedantic -Werror -g'
         export FS='-fsanitize=address'
 
@@ -82,6 +84,8 @@
 
         eval $(keychain --eval --agents gpg,ssh id_ed25519)
         eval $(keychain --eval --agents gpg --quiet 0xB17D0AED463C9DE9)
+
+        FUNCNEST=100
 
     '';
   };

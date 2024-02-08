@@ -7,6 +7,7 @@
     ./polybar
     ./i3
     ./rofi
+    ./picom
     ./superproductivity
   ];
 }

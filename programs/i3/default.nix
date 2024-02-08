@@ -69,6 +69,7 @@ in
                     "${modifier}+s" = "layout stacking";
                     "${modifier}+z" = "layout tabbed";
                     "${modifier}+e" = "layout toggle split";
+                    "${modifier}+d" = "exec ~/.nixsave/launcherPath.sh";
                     "${modifier}+r" = "mode resize";
                     "${modifier}+b" = "exec i3lock-color -i ${wallpaper_lock} -F --clock -S 0 --indicator --inside-color=ffffff11 ";
 
@@ -78,7 +79,6 @@ in
 # save in Pictures folder
                     "Ctrl+Print"           = "exec --no-startup-id flameshot gui -p \"/$HOME/Pictures/\"";
 
-                    "${modifier}+d"       = "exec --no-startup-id dmenu_run";
                 };
 
                 startup = [
@@ -98,12 +98,17 @@ in
                 }
 
                 {
-                    command = "${pkgs.ckb-next}/bin/ckb-next"; 
+                    command = "${pkgs.ckb-next}/bin/ckb-next --background"; 
                     always = false; 
                     notification = false;
                 }
                 {
                     command = "xrandr --output HDMI-A-0 --mode 1920x1080 && xrandr --output DisplayPort-0 --mode 1280x1024 --auto --output HDMI-A-1 --auto --right-of DisplayPort-0 --output HDMI-A-0 --right-of HDMI-A-1 && xrandr --output DP-1 --mode 1280x1024 --auto --output HDMI-2 --auto --right-of DP-1 --output HDMI-1 --right-of HDMI-2";
+                    always = false;
+                    notification = false;
+                }
+                {
+                    command = "${pkgs.picom}/bin/picom";
                     always = false;
                     notification = false;
                 }
@@ -118,7 +123,7 @@ in
 
                 gaps = {
                     top = 40;
-                    inner = 12;
+                    inner = 6;
                     outer = 0;
                     smartBorders = "on";
                     smartGaps = false;

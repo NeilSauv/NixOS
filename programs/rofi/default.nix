@@ -13,5 +13,8 @@
     ".config/rofi/powermenu.rasi".source = ../../programs/rofi/powermenu.rasi;
     ".config/rofi/network.rasi".source = ../../programs/rofi/network.rasi;
     ".config/rofi/bluetooth.rasi".source = ../../programs/rofi/bluetooth.rasi;
+    ".config/rofi/launchers".source = ../../programs/rofi/launchers;
+    ".config/rofi/colors".source = ../../programs/rofi/colors;
+
   };
 }
