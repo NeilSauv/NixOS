@@ -15,6 +15,7 @@
     ".config/rofi/bluetooth.rasi".source = ../../programs/rofi/bluetooth.rasi;
     ".config/rofi/launchers".source = ../../programs/rofi/launchers;
     ".config/rofi/colors".source = ../../programs/rofi/colors;
+    ".config/rofi/images".source = ../../programs/rofi/images;
 
   };
 }
