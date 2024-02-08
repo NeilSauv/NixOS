@@ -83,7 +83,7 @@
         export NAME_USER="USER_NAME"
 
         eval $(keychain --eval --agents gpg,ssh id_ed25519)
-        eval $(keychain --eval --agents gpg --quiet 0xB17D0AED463C9DE9)
+        eval $(keychain --eval --agents gpg --quiet 0xGPG_KEY)
 
         FUNCNEST=100
 

@@ -38,17 +38,14 @@ else
     mkdir -p "users/$NAME_USER"
 fi
 
+gpg_key=$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | cut -d'/' -f2)
+
 for tuple in "${files[@]}"
 do
     name=$(extract_tuple "$tuple" 0)
     path=$(extract_tuple "$tuple" 1)
-    sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "builder/$name" > "$path"
+    sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" -e "s/GPG_KEY/$gpg_key/g" "builder/$name" > "$path"
 done
-
-#if [ $first = true ]
-#then
-#    home-manager switch --flake .
-#fi
 
 for script in "${install[@]}"
 do

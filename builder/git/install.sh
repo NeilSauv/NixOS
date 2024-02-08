@@ -8,7 +8,10 @@ existing_key=$(git config --global user.signingkey)
 
 if [ ! -z "$existing_key" ]; 
 then
-    exit 0
+    if [ ! -z "$(gpg --list-secret-keys --keyid-format LONG | grep sec | awk '{print $2}' | cut -d'/' -f2)" ]
+    then
+        exit 0
+    fi
 fi
 
 mkdir -p ../../programs/git/
