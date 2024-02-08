@@ -83,6 +83,11 @@ in
 
                 startup = [
                 {
+                    command = "xrandr --output HDMI-A-0 --mode 1920x1080 && xrandr --output DisplayPort-0 --mode 1280x1024 --auto --output HDMI-A-1 --auto --right-of DisplayPort-0 --output HDMI-A-0 --right-of HDMI-A-1 && xrandr --output DP-1 --mode 1280x1024 --auto --output HDMI-2 --auto --right-of DP-1 --output HDMI-1 --right-of HDMI-2";
+                    always = false;
+                    notification = false;
+                }
+                {
                     command = "~/.dotfiles/programs/polybar/scripts/launch.sh";
                     always = true;
                     notification = false;
@@ -90,6 +95,11 @@ in
                 {
                     command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
                     always = true;
+                }
+                {
+                    command = "bash -c 'sleep 1; ${pkgs.picom}/bin/picom'";
+                    always = false;
+                    notification = false;
                 }
                 {
                     command = "${pkgs.feh}/bin/feh --bg-fill ${wallpaper}";
@@ -102,16 +112,8 @@ in
                     always = false; 
                     notification = false;
                 }
-                {
-                    command = "xrandr --output HDMI-A-0 --mode 1920x1080 && xrandr --output DisplayPort-0 --mode 1280x1024 --auto --output HDMI-A-1 --auto --right-of DisplayPort-0 --output HDMI-A-0 --right-of HDMI-A-1 && xrandr --output DP-1 --mode 1280x1024 --auto --output HDMI-2 --auto --right-of DP-1 --output HDMI-1 --right-of HDMI-2";
-                    always = false;
-                    notification = false;
-                }
-                {
-                    command = "${pkgs.picom}/bin/picom";
-                    always = false;
-                    notification = false;
-                }
+
+
                 ];
 
                 bars = [
