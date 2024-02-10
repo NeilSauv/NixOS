@@ -25,7 +25,7 @@ sudo nixos-rebuild switch --upgrade
 ```
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --update
-nix-shell '<home-manager>' -A install
+sudo nix-shell '<home-manager>' -A install
 sudo nixos-rebuild switch
 ```
 ## Launch flake
