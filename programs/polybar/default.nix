@@ -399,10 +399,10 @@ in {
                 content-foreground = "${altbackground}";
             };
             "module/work" = {
-            type = "custom/script";
-            exec = "${scripts_path}/toggle_work.sh";
-            click-left = "${scripts_path}/toggle_work.sh toggle";
-            interval = 1;
+                type = "custom/script";
+                exec = "${scripts_path}/toggle_work.sh";
+                click-left = "${scripts_path}/toggle_work.sh toggle";
+                interval = 0;
             };
         };
         script = "polybar main --log=error &";
