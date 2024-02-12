@@ -22,7 +22,9 @@
             jetbrains.idea-ultimate
             libxcrypt
             i3lock-color
+            dunst
             nodejs
+            libnotify
             vim
             imagemagick
             nix-ld

@@ -82,8 +82,11 @@
         export PGHOST="/tmp"
         export NAME_USER="USER_NAME"
 
-        eval $(keychain --eval --agents gpg,ssh id_ed25519)
-        eval $(keychain --eval --agents gpg --quiet 0xGPG_KEY)
+        if [ $(cat "/tmp/work_mode_state") = "ON" ]
+        then
+            eval $(keychain --eval --agents gpg,ssh id_ed25519)
+            eval $(keychain --eval --agents gpg --quiet 0xGPG_KEY)
+        fi
 
         FUNCNEST=100
 
