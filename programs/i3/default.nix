@@ -4,6 +4,8 @@
 let
 wallpaper = "/$HOME/.dotfiles/wallpaper/wallpaper.jpg";
 wallpaper_lock = "/$HOME/.dotfiles/wallpaper/wallpaper_lock.jpg";
+workspaceScript = "/$HOME/.dotfiles/programs/i3/workspace_per_monitor.sh";
+workspaceScriptReturn = "/$HOME/.dotfiles/programs/i3/workspace_per_monitor_target.sh";
 in
 {
     programs.i3status.enable = true;
@@ -15,7 +17,7 @@ in
             enable = true;
 
             extraConfig = ''
-                workspace_auto_back_and_forth yes
+                workspace_auto_back_and_forth no
                 popup_during_fullscreen smart
 
                 for_window [class="^.*"] border pixel 1
@@ -23,15 +25,10 @@ in
 
                 for_window [class="feh"] floating enable
                 for_window [class="Pavucontrol"] floating enable
-
-                workspace 1 output HDMI-A-1
-                workspace 9 output DisplayPort-0
-                workspace 10 output HDMI-A-0
                 '';
 
             config = rec {
                 modifier = "Mod4";
-
                 keybindings = lib.mkOptionDefault {
                     XF86AudioPlay          = "exec ${pkgs.playerctl}/bin/playerctl play";
                     XF86AudioPause         = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -53,6 +50,27 @@ in
                     "${modifier}+k" = "focus up";
                     "${modifier}+l" = "focus right";
 
+                    "${modifier}+1" = "exec --no-startup-id ${workspaceScript} 1";
+                    "${modifier}+2" = "exec --no-startup-id ${workspaceScript} 2";
+                    "${modifier}+3" = "exec --no-startup-id ${workspaceScript} 3";
+                    "${modifier}+4" = "exec --no-startup-id ${workspaceScript} 4";
+                    "${modifier}+5" = "exec --no-startup-id ${workspaceScript} 5";
+                    "${modifier}+6" = "exec --no-startup-id ${workspaceScript} 6";
+                    "${modifier}+7" = "exec --no-startup-id ${workspaceScript} 7";
+                    "${modifier}+8" = "exec --no-startup-id ${workspaceScript} 8";
+                    "${modifier}+9" = "exec --no-startup-id ${workspaceScript} 9";
+                    "${modifier}+0" = "exec --no-startup-id ${workspaceScript} 10";
+                    "${modifier}+Shift+1" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 1) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+2" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 2) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+3" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 3) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+4" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 4) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+5" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 5) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+6" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 6) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+7" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 7) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+8" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 8) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+9" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 9) && i3-msg move container to workspace number $wk'";
+                    "${modifier}+Shift+0" = "exec --no-startup-id sh -c 'wk=$(${workspaceScriptReturn} 10) && i3-msg move container to workspace number $wk'";
+
                     "${modifier}+Shift+h" = "move left";
                     "${modifier}+Shift+j" = "move down";
                     "${modifier}+Shift+k" = "move up";
@@ -72,11 +90,7 @@ in
                     "${modifier}+d" = "exec ~/.nixsave/launcherPath.sh";
                     "${modifier}+r" = "mode resize";
                     "${modifier}+b" = "exec i3lock-color -i ${wallpaper_lock} -F --clock -S 0 --indicator --inside-color=ffffff11 ";
-
-# Screenshot
-# Copy to clipboard
                     "Print"                = "exec --no-startup-id flameshot gui -c";
-# save in Pictures folder
                     "Ctrl+Print"           = "exec --no-startup-id flameshot gui -p \"/$HOME/Pictures/\"";
 
                 };
@@ -109,18 +123,13 @@ in
 
                 {
                     command = "${pkgs.ckb-next}/bin/ckb-next --background"; 
-                    always = false; 
+                    always = false;
                     notification = false;
                 }
-
 
                 ];
 
                 bars = [
-#{
-#  statusCommand = "${pkgs.i3status}/bin/i3status";
-#  position = "bottom";
-#}
                 ];
 
                 gaps = {

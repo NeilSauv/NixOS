@@ -23,6 +23,7 @@ filetype indent plugin on
 syntax on
 
 highlight Folded ctermbg=gray ctermfg=white guibg=#333333 guifg=white
+au BufRead,BufNewFile *.asm,*.s set filetype=asm
 
 set cc=80
 set number
@@ -33,7 +34,7 @@ set tabstop=4
 set smarttab
 set smartindent
 set cindent
-set textwidth=80
+set textwidth=0
 set backspace=eol,start,indent
 set clipboard=unnamedplus
 set belloff=all
@@ -162,3 +163,18 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+let g:coc_global_extensions = [
+  \ 'coc-spell-checker',
+  \ 'coc-pairs',
+  \ 'coc-html',
+  \ 'coc-git',
+  \ 'coc-explorer',
+  \ 'coc-tsserver',
+  \ 'coc-python',
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-clangd',
+  \ 'coc-rust-analyzer',
+  \ 'coc-toml'
+\ ]

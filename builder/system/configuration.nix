@@ -19,6 +19,8 @@
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
 
+    boot.plymouth.enable = true;
+
     time.timeZone = "Europe/Paris";
 
     i18n.defaultLocale = "en_US.UTF-8";
@@ -36,11 +38,6 @@
     };
 
     services.gvfs.enable = true;
-
-    services.xserver = {
-        layout = "us";
-        xkbVariant = "";
-    };
 
     console = {
         keyMap = "us";
@@ -66,10 +63,17 @@
     users.users.USER_NAME = {
         isNormalUser = true;
         description = "USER_MAJ";
-        extraGroups = [ "networkmanager" "wheel" "video"];
+        extraGroups = [ "networkmanager" "wheel" "video" "vboxusers"];
         packages = with pkgs; [
         ];
     };
+
+    users.users.dev = {
+        isNormalUser = true;
+        home = "/home/dev";
+        shell = pkgs.bash;
+    };
+
 
     nixpkgs.config.allowUnfree = true;
     hardware.cpu.amd.updateMicrocode = true;
@@ -80,12 +84,7 @@
     virtualisation.virtualbox.guest.enable = true;
 
 
-    users.extraUsers.USER_NAME = {
-        extraGroups = [ "vboxusers" ];
-    };
-
     users.extraGroups.vboxusers.members = [ "USER_NAME" ];
-
 
     environment.systemPackages = with pkgs; [
     ];
@@ -97,6 +96,8 @@
     services.xserver = {
 
         enable = true;
+        layout = "us";
+        xkbVariant = "";
 
         desktopManager = {
             xterm.enable = false;
@@ -107,6 +108,7 @@
             defaultSession = "none+i3";
         };
         windowManager.i3.enable = true;
+
     };
 
     services.openssh.enable = true;

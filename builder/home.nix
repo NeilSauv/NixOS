@@ -19,6 +19,8 @@
         home.packages = with pkgs; [
         google-chrome
             flatpak
+            lsof
+            xdotool
             jetbrains.idea-ultimate
             libxcrypt
             i3lock-color
@@ -26,6 +28,7 @@
             nodejs
             libnotify
             vim
+            netcat
             imagemagick
             nix-ld
             bat
@@ -63,7 +66,6 @@
             usbutils
             pkg-config
             krb5
-            postgresql
             python3Packages.pygments
             xclip
             sshfs
@@ -109,6 +111,7 @@
             networkmanager_dmenu
             killall
             discord
+            postgresql
             picom
             dmenu
 
@@ -120,6 +123,12 @@
 #misc
             nerdfonts
             roboto
+
+#Secu
+            ghidra
+            wine
+            android-studio
+            radare2
             ];
 
     fonts.fontconfig.enable = true;

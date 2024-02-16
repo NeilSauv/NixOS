@@ -6,6 +6,7 @@ maj=$(echo "$maj" | sed 's/./\u&/')
 cd builder/system
 if [ -d "../../system" ]
 then
+    sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "configuration.nix" > "../../system/configuration.nix"
     cd ../../
     exit 0
 fi
@@ -47,4 +48,6 @@ done
 sed -e "s/UUID_EXT4/$uuid_ext4/g" -e "s/UUID_VFAT/$uuid_vfat/g" -e "s/UUID_SWAP/$uuid_swap/g" "hardware-configuration.nix" > "../../system/hardware-configuration.nix"
 
 sed -e "s/USER_NAME/$NAME_USER/g" -e "s/USER_MAJ/$maj/g" "configuration.nix" > "../../system/configuration.nix"
+
+
 cd ../../

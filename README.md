@@ -32,8 +32,8 @@ sudo nixos-rebuild switch
 Finally you just have to execute the following command in order to build your config
 ```
 cd ~/.dotfiles
-sudo ./apply-system.sh [User_name]
-sudo ./apply-system.sh [User_name]
+sudo ./apply-system.sh [User_name] -d
+sudo ./apply-system.sh [User_name] -d
 
 cd ~/.dotfiles
 ./apply-user.sh [User_name]
@@ -48,6 +48,4 @@ reboot
 ```
 vim
 :PluginInstall
-:q
-:q
 ```

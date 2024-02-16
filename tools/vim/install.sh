@@ -1,5 +1,7 @@
 #!/bin/sh
 
+VIMRC_PATH=~/.vimrc
+
 cd vim
 
 folders=(
@@ -42,5 +44,6 @@ fi
 
 cd ../../
 cp .vimrc ~/
+cp coc-settings.json ~/.vim/
 cp .vim ~/ -r 2> /dev/null
 cd ..
