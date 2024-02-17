@@ -13,8 +13,15 @@
             '';
     };
 
+    hardware.opengl.enable = true;
+    hardware.opengl.driSupport32Bit = true;
+
+    boot.blacklistedKernelModules = [ "kvm_amd" ];
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" "amdgpu" ];
+    virtualisation.virtualbox.host.enable = true;
 
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
@@ -41,6 +48,7 @@
 
     console = {
         keyMap = "us";
+        font = "Lat2-Terminus16";
     };
 
     services.printing.enable = true;
@@ -70,8 +78,12 @@
 
     users.users.dev = {
         isNormalUser = true;
+        description = "Dev";
         home = "/home/dev";
         shell = pkgs.bash;
+        extraGroups = [ "networkmanager" "wheel" "video" "vboxusers"];
+        packages = with pkgs; [
+        ];
     };
 
 
@@ -79,10 +91,6 @@
     hardware.cpu.amd.updateMicrocode = true;
     hardware.enableRedistributableFirmware = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
-
-    virtualisation.virtualbox.host.enable = true;
-    virtualisation.virtualbox.guest.enable = true;
-
 
     users.extraGroups.vboxusers.members = [ "USER_NAME" ];
 
@@ -97,6 +105,7 @@
 
         enable = true;
         layout = "us";
+        videoDrivers = [ "amdgpu" ];
         xkbVariant = "";
 
         desktopManager = {
@@ -122,13 +131,11 @@
         serviceConfig = {
             ExecStart = "${pkgs.ckb-next}/bin/ckb-next-daemon";
             Restart = "always";
-# Assurez-vous que le service s'exécute en tant que root
             User = "root";
             Group = "root";
         };
     };
 
-# Activer le service au démarrage
     systemd.services.ckb-next-daemon.enable = true;
 
 }

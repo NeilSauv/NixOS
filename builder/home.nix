@@ -126,8 +126,8 @@
 
 #Secu
             ghidra
-            wine
-            android-studio
+            #wine
+            #android-studio
             radare2
             ];
 
