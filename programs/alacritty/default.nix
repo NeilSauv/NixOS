@@ -28,8 +28,6 @@ in
         decorations = "none";
         startup_mode = "windowed";
         dynamic_title = true;
-        history = 10000;
-        multiplier = 3;
         opacity = 1.0;
       };
       cursor = {

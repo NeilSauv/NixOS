@@ -88,7 +88,8 @@
             eval $(keychain --eval --agents gpg --quiet 0xGPG_KEY)
         fi
 
-        FUNCNEST=100
+        FUNCNEST=1000
+        eval "$(direnv hook zsh)"
 
     '';
   };

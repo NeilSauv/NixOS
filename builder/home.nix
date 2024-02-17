@@ -20,6 +20,7 @@
         google-chrome
             flatpak
             lsof
+            direnv
             xdotool
             jetbrains.idea-ultimate
             libxcrypt

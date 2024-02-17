@@ -79,17 +79,6 @@
         ];
     };
 
-    users.users.dev = {
-        isNormalUser = true;
-        description = "Dev";
-        home = "/home/dev";
-        shell = pkgs.bash;
-        extraGroups = [ "networkmanager" "wheel" "video" "vboxusers"];
-        packages = with pkgs; [
-        ];
-    };
-
-
     nixpkgs.config.allowUnfree = true;
     hardware.cpu.amd.updateMicrocode = true;
     hardware.enableRedistributableFirmware = true;
@@ -107,9 +96,8 @@
     services.xserver = {
 
         enable = true;
-        layout = "us";
+        xkb.layout = "us";
         videoDrivers = [ "amdgpu" ];
-        xkbVariant = "";
 
         desktopManager = {
             xterm.enable = false;
