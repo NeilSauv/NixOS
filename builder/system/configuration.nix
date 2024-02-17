@@ -13,6 +13,9 @@
             '';
     };
 
+    system.autoUpgrade.enable = true;
+    system.autoUpgrade.allowReboot = true;
+
     hardware.opengl.enable = true;
     hardware.opengl.driSupport32Bit = true;
 
