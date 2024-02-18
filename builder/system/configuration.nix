@@ -14,7 +14,7 @@
     };
 
     system.autoUpgrade.enable = true;
-    system.autoUpgrade.allowReboot = true;
+    system.autoUpgrade.allowReboot = false;
 
     hardware.opengl.enable = true;
     hardware.opengl.driSupport32Bit = true;

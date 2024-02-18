@@ -6,6 +6,7 @@ wallpaper = "/$HOME/.dotfiles/wallpaper/wallpaper.jpg";
 wallpaper_lock = "/$HOME/.dotfiles/wallpaper/wallpaper_lock.jpg";
 workspaceScript = "/$HOME/.dotfiles/programs/i3/workspace_per_monitor.sh";
 workspaceScriptReturn = "/$HOME/.dotfiles/programs/i3/workspace_per_monitor_target.sh";
+workspaceScriptInit = "/$HOME/.dotfiles/programs/i3/workspace_init.sh";
 in
 {
     programs.i3status.enable = true;
@@ -25,6 +26,8 @@ in
 
                 for_window [class="feh"] floating enable
                 for_window [class="Pavucontrol"] floating enable
+
+                exec --no-startup-id ${workspaceScriptInit}
                 '';
 
             config = rec {
