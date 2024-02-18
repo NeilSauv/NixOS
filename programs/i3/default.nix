@@ -28,6 +28,7 @@ in
                 for_window [class="Pavucontrol"] floating enable
 
                 exec --no-startup-id ${workspaceScriptInit}
+                exec --no-startup-id numlockx on
                 '';
 
             config = rec {

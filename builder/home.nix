@@ -19,6 +19,7 @@
         home.packages = with pkgs; [
         google-chrome
             flatpak
+            numlockx
             lsof
             direnv
             xdotool
