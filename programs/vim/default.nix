@@ -198,6 +198,9 @@
       \ ]
 
       let mapleader = ","
+      xmap <leader>a  <Plug>(coc-codeaction-selected)
+      nmap <leader>a  <Plug>(coc-codeaction-selected)
+      nmap <leader>ac   <Plug>(coc-codeaction-selected)w
     '';
   };
 }

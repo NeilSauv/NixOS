@@ -5,6 +5,7 @@ tools/utils/.recover
 /system/
 result
 /flake.nix
+/flake.lock
 users/neil
 tools/vim/.vim/bundle/*
 !tools/vim/.vim/bundle/ayu.vim
