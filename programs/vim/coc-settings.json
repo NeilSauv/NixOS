@@ -1,5 +1,4 @@
 {
     "snippets.ultisnips.pythonPrompt": false,
-    "suggest.maxCompleteItemCount": 5,
-    "inlayHint": {"enable": false}
+    "inlayHint": {"enable": true}
 }

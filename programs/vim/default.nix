@@ -198,9 +198,14 @@
       \ ]
 
       let mapleader = ","
-      xmap <leader>a  <Plug>(coc-codeaction-selected)
-      nmap <leader>a  <Plug>(coc-codeaction-selected)
-      nmap <leader>ac   <Plug>(coc-codeaction-selected)w
+      nmap <leader>f <Plug>(coc-codeaction-selected)w
+
+      inoremap <expr> <c-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+      inoremap <expr> <c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+
+      nnoremap <Leader>t :terminal<Space>
+
+
     '';
   };
 }
