@@ -1,4 +1,4 @@
-{...}: {
+{ lib, ... }: {
   imports = [
     ./alacritty
     ./zsh
@@ -6,6 +6,7 @@
     ./gpg
     ./polybar
     ./i3
+    ./vim
     ./rofi
     ./picom
     ./superproductivity

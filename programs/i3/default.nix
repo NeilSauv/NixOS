@@ -29,7 +29,7 @@ in
 
                 exec --no-startup-id ${workspaceScriptInit}
                 exec --no-startup-id numlockx on
-                exec-always --no-startup-id xset r rate 150 25
+                exec-always --no-startup-id xset r rate 190 27
                 '';
 
             config = rec {

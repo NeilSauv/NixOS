@@ -29,7 +29,6 @@
             dunst
             nodejs
             libnotify
-            vim
             netcat
             imagemagick
             nix-ld
@@ -128,8 +127,8 @@
 
 #Secu
             ghidra
-            #wine
-            #android-studio
+#wine
+#android-studio
             radare2
             ];
 
@@ -137,19 +136,20 @@
 
     programs = {
         home-manager.enable = true;
-    }; 
+    };
 
     systemd.user.services.polybar = {
         Install.WantedBy = [ "graphical-session.target" ];
-        Service.Environment = lib.mkForce ""; # to override the package's default configuration
-            Service.PassEnvironment = "PATH"; # so that the entire PATH is passed to this service (alternatively, you can import the entire PATH to systemd at startup, which I'm not sure is recommended
-                    };
+        Service.Environment = lib.mkForce "";
+        Service.PassEnvironment = "PATH";
+    };
 
-                    home.file = {
-                    };
+    home.file = {
+    };
 
-                    home.sessionVariables = {
-                    EDITOR = "vim";
-                    JAVA_HOME = "${pkgs.openjdk17}";
-                    };
-                    }
+    home.sessionVariables = {
+        EDITOR = "vim";
+        JAVA_HOME = "${pkgs.openjdk17}";
+    };
+
+}
