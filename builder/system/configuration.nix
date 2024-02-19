@@ -13,7 +13,7 @@
             '';
     };
 
-    system.autoUpgrade.enable = true;
+    system.autoUpgrade.enable = false;
     system.autoUpgrade.allowReboot = false;
 
     hardware.opengl.enable = true;
