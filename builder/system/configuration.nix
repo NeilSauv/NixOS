@@ -108,7 +108,6 @@
             defaultSession = "none+i3";
         };
         windowManager.i3.enable = true;
-
     };
 
     services.openssh.enable = true;

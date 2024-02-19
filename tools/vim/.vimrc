@@ -125,8 +125,8 @@ let g:DoxygenToolkit_briefTag = "@brief : "
 let g:DoxygenToolkit_paramTag = "@param : "
 let g:DoxygenToolkit_returnTag = "@return : "
 
-:inoremap <expr> <Tab> search('\%#[]>)]', 'n') ? '<Right>' : '<Tab>'
 inoremap <silent><expr> <CR> pumvisible() ? coc#pum#confirm() : "\<CR>"
+inoremap <expr> <Tab> search('\%#[]>)]', 'n') ? '<Right>' : '<Tab>'
 
 vnoremap <C-S-c> :w !xclip -selection clipboard<CR><CR>
 nnoremap <C-S-c> :.w !xclip -selection clipboard<CR><CR>
@@ -180,5 +180,3 @@ let g:coc_global_extensions = [
 \ ]
 
 let mapleader = ","
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
