@@ -29,9 +29,7 @@
       Plugin 'Raimondi/delimitMate'
 
       set termguicolors     " enable true colors support
-      let ayucolor="light"  " for light version of theme
-      let ayucolor="mirage" " for mirage version of theme
-      let ayucolor="dark"   " for dark version of theme
+      let ayucolor="dark"
       colorscheme ayu
 
       call vundle#end()
@@ -159,9 +157,6 @@
       :Files
       endfunction
 
-      nnoremap <silent> <C-d> :CocCommand explorer<CR>
-
-
       let $FZF_DEFAULT_COMMAND = 'find . -type f \( -name "*.o" -prune -o -print \)'
 
 
@@ -183,7 +178,6 @@
       let g:airline#extensions#tabline#formatter = 'unique_tail'
 
       let g:coc_global_extensions = [
-      \ 'coc-spell-checker',
       \ 'coc-pairs',
       \ 'coc-html',
       \ 'coc-git',
@@ -204,8 +198,9 @@
       inoremap <expr> <c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 
       nnoremap <Leader>t :terminal<Space>
+      nnoremap <silent> <C-k> :call CocAction('doHover')<CR>
 
-
+      nnoremap <silent> <C-d> :CocCommand explorer<CR>
     '';
   };
 }

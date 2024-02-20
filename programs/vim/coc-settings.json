@@ -1,4 +1,13 @@
 {
-    "snippets.ultisnips.pythonPrompt": false,
-    "inlayHint": {"enable": true}
+    "snippets.ultisnips.enable": false,
+    "inlayHint.enable": false,
+    "clangd.path": "/home/neil/.nix-profile/bin/clangd",
+    "clangd.semanticHighlighting": true,
+    "diagnostic.checkCurrentLine": true,
+    "coc.preferences.diagnostic.updateOnInsert": true,
+    "clangd.onConfigChanged": "reload",
+    "diagnostic.debounce": 500,
+    "coc.source.spell.enable": false,
+    "explorer.icon.enableNerdfont": true
 }
+

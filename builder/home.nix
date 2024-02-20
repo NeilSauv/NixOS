@@ -20,6 +20,7 @@
         google-chrome
             flatpak
             numlockx
+            bear
             lsof
             direnv
             xdotool
