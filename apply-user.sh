@@ -27,7 +27,7 @@ extract_tuple() {
     echo "$element"
 }
 
-pushd "/home/$NAME_USER/.dotfiles" || exit
+cd "/home/$NAME_USER/.dotfiles"
 
 mv ".git" ".gitsave"
 first=true
@@ -63,4 +63,3 @@ fi
 nix build ".#homeConfigurations.$NAME_USER.activationPackage"
 home-manager switch --flake .
 mv ".gitsave" ".git"
-popd || exit

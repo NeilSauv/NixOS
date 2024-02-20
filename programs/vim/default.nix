@@ -142,7 +142,7 @@
       let g:DoxygenToolkit_returnTag = "@return : "
 
       inoremap <silent><expr> <CR> pumvisible() ? coc#pum#confirm() : "\<CR>"
-      inoremap <expr> <Tab> search('\%#[]>)]', 'n') ? '<Right>' : '<Tab>'
+      inoremap <expr> <Tab> search('\%#[]>)],', 'n') ? '<Right>' : '<Tab>'
 
       vnoremap <C-S-c> :w !xclip -selection clipboard<CR><CR>
       nnoremap <C-S-c> :.w !xclip -selection clipboard<CR><CR>
@@ -201,6 +201,16 @@
       nnoremap <silent> <C-k> :call CocAction('doHover')<CR>
 
       nnoremap <silent> <C-d> :CocCommand explorer<CR>
+
+      function! OpenCocExplorerOnStartup()
+      " Vérifie si Vim est lancé sans arguments ou avec le répertoire courant comme argument
+      if argc() == 0 || (argc() == 1 && isdirectory(argv(0)) && argv(0) == '.')
+      autocmd VimEnter * CocCommand explorer
+      endif
+      endfunction
+
+      call OpenCocExplorerOnStartup()
+
     '';
   };
 }

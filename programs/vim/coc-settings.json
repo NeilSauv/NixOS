@@ -8,6 +8,8 @@
     "clangd.onConfigChanged": "reload",
     "diagnostic.debounce": 500,
     "coc.source.spell.enable": false,
-    "explorer.icon.enableNerdfont": true
+    "explorer.icon.enableNerdfont": true,
+    "explorer.width": 28,
+    "explorer.previewAction.onHover": false
 }
 

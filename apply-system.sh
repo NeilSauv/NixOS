@@ -16,7 +16,7 @@ then
     nix-collect-garbage --delete-old
 fi
 
-pushd "/home/$NAME_USER/.dotfiles" || exit
+cd "/home/$NAME_USER/.dotfiles"
 
 echo "Preparing flake configuration..."
 mv ".git" ".gitsave"
@@ -31,5 +31,3 @@ echo "Rebuilding and switching to the new system configuration..."
 sudo nixos-rebuild switch --flake .#
 
 mv ".gitsave" ".git"
-
-popd || exit
