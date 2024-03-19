@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
@@ -41,9 +41,12 @@
         alias srt='~/.dotfiles/tools/utils/gccRunProg.sh'
         alias grep='grep --color -n'
         alias ccat='pygmentize -f terminal -g'
-        alias epita='cd ~/EPITA'
+        alias epita='cd ~/EPITA/Cours/S6'
+        alias lss='tail -n +1 *'
+        alias rtc='~/.dotfiles/tools/utils/rtc -o result *.tig; ./result'
         alias tools='cd ~/.dotfiles/tools/utils'
         alias nixvim='vim ~/.dotfiles/programs/vim/default.nix'
+        alias screen='xrandr --output HDMI-A-0 --mode 1920x1080 && xrandr --output DisplayPort-0 --mode 1280x1024 --auto --output HDMI-A-1 --auto --right-of DisplayPort-0 --output HDMI-A-0 --right-of HDMI-A-1 && xrandr --output DP-1 --mode 1280x1024 --auto --output HDMI-2 --auto --right-of DP-1 --output HDMI-1 --right-of HDMI-2'
         alias cpy='~/.dotfiles/tools/utils/copy.sh'
         alias pst='~/.dotfiles/tools/utils/paste.sh'
         alias xcut='~/.dotfiles/tools/utils/xcut.sh'
@@ -65,7 +68,8 @@
         alias val='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
         alias setdir='~/.dotfiles/tools/utils/setdir.sh'
         alias ddir='. ~/.dotfiles/tools/utils/ddir.sh'
-        alias makeinit='cp ~/.dotfiles/tools/utils/Makefile Makefile'
+        alias makeinitc='cp ~/.dotfiles/tools/utils/Makefilec Makefile'
+        alias makeinitcpp='cp ~/.dotfiles/tools/utils/Makefilecpp Makefile'
         alias sf='sqlfluff lint --dialect postgres'
 
         alias quizlet=google-chrome-stable --app="https://quizlet.com"
@@ -77,6 +81,7 @@
         alias launcherManager=~/.config/rofi/launchers/find_launcher.sh
 
         export CFLAGS='-Wall -Wextra -Wvla -std=c99 -pedantic -Werror -g'
+        export CXX='g++'
         export FS='-fsanitize=address'
 
         setxkbmap -option caps:escape

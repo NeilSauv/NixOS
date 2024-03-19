@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.gpg = {
@@ -7,7 +7,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "gtk2";
+    pinentryPackage = pkgs.pinentry-gtk2;
     extraConfig = ''
       default-cache-ttl 3600
       max-cache-ttl 86400

@@ -4,8 +4,8 @@ let
   superProductivityWrapper = pkgs.writeShellScriptBin "superproductivity" ''
     #!${pkgs.runtimeShell}
     exec appimage-run ${pkgs.fetchurl {
-      url = "https://github.com/johannesjo/super-productivity/releases/download/v7.15.0/superProductivity-7.15.0.AppImage";
-      sha256 = "3911006833f9827f7c8dd6c24578248d9cb496f7f08e0fe0f86a53c4dea0d176";
+      url = "https://github.com/johannesjo/super-productivity/releases/download/v8.0.1/superProductivity-8.0.1.AppImage";
+      sha256 = "056ff88cfe2587795e01c772dc91c44ff3d4c9b37ed02cbdc313128b9edd01cc";
     }}
   '';
 

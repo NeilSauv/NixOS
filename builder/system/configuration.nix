@@ -19,11 +19,9 @@
     hardware.opengl.enable = true;
     hardware.opengl.driSupport32Bit = true;
 
-    boot.blacklistedKernelModules = [ "kvm_amd" ];
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" "amdgpu" ];
+    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" ];
     virtualisation.virtualbox.host.enable = true;
 
     networking.hostName = "nixos";
@@ -80,7 +78,6 @@
     };
 
     nixpkgs.config.allowUnfree = true;
-    hardware.cpu.amd.updateMicrocode = true;
     hardware.enableRedistributableFirmware = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -97,7 +94,6 @@
 
         enable = true;
         xkb.layout = "us";
-        videoDrivers = [ "amdgpu" ];
 
         desktopManager = {
             xterm.enable = false;

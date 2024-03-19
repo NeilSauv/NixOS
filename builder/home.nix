@@ -20,9 +20,11 @@
         google-chrome
             flatpak
             numlockx
+            docker
             bear
             lsof
             direnv
+            jupyter
             xdotool
             jetbrains.idea-ultimate
             libxcrypt
@@ -44,7 +46,6 @@
             glibc
             clipman
             bison
-            python38
             htop
             clang-tools
             man-pages-posix
@@ -68,7 +69,6 @@
             usbutils
             pkg-config
             krb5
-            python3Packages.pygments
             xclip
             sshfs
             maim
