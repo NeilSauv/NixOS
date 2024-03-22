@@ -38,7 +38,7 @@ sudo ./apply-system.sh [User_name] -d
 cd ~/.dotfiles
 ./apply-user.sh [User_name] -d
 # Put the ssh key generated on github
-rm ~/config/i3/config
+rm ~/.config/i3/config
 ./apply-user.sh [User_name] -d
 ./apply-user.sh [User_name] -d
 reboot
