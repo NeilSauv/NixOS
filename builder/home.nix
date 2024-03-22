@@ -128,8 +128,6 @@
 
 #Secu
             ghidra
-#wine
-#android-studio
             radare2
             ];
 
