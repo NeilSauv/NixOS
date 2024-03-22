@@ -77,6 +77,7 @@
         alias chatgpt=google-chrome-stable --app="https://chat.openai.com/"
         alias afsinit=~/.dotfiles/tools/afs/install.sh
         alias afs=~/afs
+        alias dev='mv .git .gitsave; nix develop; mv .gitsave .git'
 
         alias launcherManager=~/.config/rofi/launchers/find_launcher.sh
 
