@@ -43,9 +43,3 @@ rm ~/.config/i3/config
 ./apply-user.sh [User_name] -d
 reboot
 ```
-
-## Setup Vim
-```
-vim
-:PluginInstall
-```
