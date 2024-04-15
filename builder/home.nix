@@ -37,6 +37,7 @@
             nix-ld
             bat
             openjdk17
+            libtool
             maven
             ncurses
             nix-index

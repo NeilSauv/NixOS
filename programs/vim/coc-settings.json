@@ -9,5 +9,6 @@
     "coc.source.spell.enable": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.width": 28,
-    "explorer.previewAction.onHover": false
+    "explorer.previewAction.onHover": false,
+    "clangd.arguments": ["--background-index"]
 }
