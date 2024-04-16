@@ -28,7 +28,7 @@ in
         decorations = "none";
         startup_mode = "windowed";
         dynamic_title = true;
-        opacity = 1.0;
+        opacity = 0.8;
       };
       cursor = {
         style = {

@@ -94,6 +94,7 @@
     environment.pathsToLink = [ "/libexec" ];
 
     programs.light.enable = true;
+    services.displayManager.defaultSession = "none+i3";
 
     services.xserver = {
 
@@ -104,10 +105,7 @@
         xterm.enable = false;
       };
 
-      displayManager = {
-        lightdm.enable = true;
-        defaultSession = "none+i3";
-      };
+      displayManager.lightdm.enable = true;
       windowManager.i3.enable = true;
     };
 
