@@ -6,9 +6,9 @@ tools/utils/.recover
 result
 /flake.nix
 /flake.lock
-users/neil
 tools/vim/.vim/bundle/*
 !tools/vim/.vim/bundle/ayu.vim
 programs/git/default.nix
 programs/zsh/default.nix
-
+/users/*
+!/users/install.sh
