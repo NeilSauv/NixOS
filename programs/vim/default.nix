@@ -12,6 +12,7 @@
       DoxygenToolkit-vim
       fzf-vim
       coc-nvim
+      vim-glsl
       vim-airline
       delimitMate
       ayu-vim
@@ -29,6 +30,7 @@
         Plugin 'neoclide/coc.nvim', {'branch': 'release'}
         Plugin 'vim-airline/vim-airline'
         Plugin 'Raimondi/delimitMate'
+        Plugin 'tikhomirov/vim-glsl'
 
         set termguicolors     " enable true colors support
         let ayucolor="dark"
@@ -223,7 +225,10 @@
 
         call OpenCocExplorerOnStartup()
         nmap gd <Plug>(coc-definition)
+        nmap gr <Plug>(coc-references)
 
+        command! -nargs=0 DeleteWord :let @" = expand('<cword>')<CR>diw
+        command! -nargs=0 ChangeWord :let @" = expand('<cword>')<CR>ciw
 
     '';
   };

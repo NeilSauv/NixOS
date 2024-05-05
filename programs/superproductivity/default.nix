@@ -1,6 +1,16 @@
 { pkgs, lib, ... }:
 
 let
+  # Chemin local vers l'icône dans le répertoire du fichier Nix
+  localIconPath = ./superproductivity.png;
+
+  # Création d'un paquet pour copier l'icône
+  superProductivityIcon = pkgs.runCommand "superproductivity-icon" {} ''
+    mkdir -p $out/share/icons
+    cp ${localIconPath} $out/share/icons/superproductivity.png
+  '';
+
+  # Wrapper pour lancer Super Productivity
   superProductivityWrapper = pkgs.writeShellScriptBin "superproductivity" ''
     #!${pkgs.runtimeShell}
     exec appimage-run ${pkgs.fetchurl {
@@ -11,7 +21,7 @@ let
 
 in
 {
-  home.packages = [ superProductivityWrapper ];
+  home.packages = [ superProductivityWrapper superProductivityIcon ];
 
   home.activation.createDesktopEntry = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p $HOME/.local/share/applications
@@ -21,9 +31,8 @@ in
     Exec=${superProductivityWrapper}/bin/superproductivity
     Type=Application
     Terminal=false
-    Icon=superproductivity
+    Icon=${superProductivityIcon}/share/icons/superproductivity.png
     Categories=Office;
     EOF
   '';
 }
-

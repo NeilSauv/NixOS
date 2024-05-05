@@ -9,35 +9,37 @@
     nix = {
       package = pkgs.nixFlakes;
       extraOptions = ''
-            experimental-features = nix-command flakes
+          experimental-features = nix-command flakes
       '';
     };
+
+    boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm" "bbswitch" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
+
+
+    nixpkgs.config.allowBroken = true;
+    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.nvidia.acceptLicense = true;
 
     networking.firewall = {
       enable = true;
       allowedTCPPorts = [ 2409 ]; # Liste des ports TCP autorisés
       allowedUDPPorts = [ 2409 ]; # Liste des ports UDP autorisés, si nécessaire
     };
+
     system.autoUpgrade.enable = false;
     system.autoUpgrade.allowReboot = false;
 
-    hardware.opengl.enable = true;
-    hardware.opengl.driSupport32Bit = true;
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" ];
     virtualisation.virtualbox.host.enable = true;
 
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
 
     boot.plymouth.enable = true;
-
     time.timeZone = "Europe/Paris";
 
     i18n.defaultLocale = "en_US.UTF-8";
-
     i18n.extraLocaleSettings = {
       LC_ADDRESS = "fr_FR.UTF-8";
       LC_IDENTIFICATION = "fr_FR.UTF-8";
@@ -49,24 +51,19 @@
       LC_TELEPHONE = "fr_FR.UTF-8";
       LC_TIME = "fr_FR.UTF-8";
     };
-
-    services.gvfs.enable = true;
-
-    console = {
-      keyMap = "us";
-      font = "Lat2-Terminus16";
-    };
-
-    services.printing.enable = true;
-
-    sound = {
+    environment.systemPackages = with pkgs; [ mesa glfw ];
+    hardware.opengl = {
       enable = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [ mesa ];
     };
 
     hardware.bluetooth.enable = true;
-    security.rtkit.enable = true;
-    services.blueman.enable = true;
+    hardware.enableRedistributableFirmware = true;
 
+    services.gvfs.enable = true;
+    services.printing.enable = true;
+    services.blueman.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
@@ -74,22 +71,24 @@
       pulse.enable = true;
     };
 
+    console = {
+      keyMap = "us";
+      font = "Lat2-Terminus16";
+    };
+
+    sound.enable = true;
+
+    security.rtkit.enable = true;
+
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+
     users.users.USER_NAME = {
       isNormalUser = true;
       description = "USER_MAJ";
-      extraGroups = [ "networkmanager" "wheel" "video" "vboxusers"];
-      packages = with pkgs; [
-      ];
+      extraGroups = [ "networkmanager" "wheel" "video" "vboxusers" ];
     };
 
-    nixpkgs.config.allowUnfree = true;
-    hardware.enableRedistributableFirmware = true;
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
     users.extraGroups.vboxusers.members = [ "USER_NAME" ];
-
-    environment.systemPackages = with pkgs; [
-    ];
 
     environment.pathsToLink = [ "/libexec" ];
 
@@ -97,16 +96,11 @@
     services.displayManager.defaultSession = "none+i3";
 
     services.xserver = {
-
       enable = true;
-      xkb.layout = "us";
-
-      desktopManager = {
-        xterm.enable = false;
-      };
-
       displayManager.lightdm.enable = true;
+      desktopManager.xterm.enable = false;
       windowManager.i3.enable = true;
+      xkb.layout = "us";
     };
 
     services.openssh.enable = true;
@@ -123,8 +117,6 @@
         User = "root";
         Group = "root";
       };
+      enable = true;
     };
-
-    systemd.services.ckb-next-daemon.enable = true;
-
   }

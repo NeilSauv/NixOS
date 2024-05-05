@@ -10,5 +10,6 @@
     ./rofi
     ./picom
     ./superproductivity
+    ./webapp
   ];
 }

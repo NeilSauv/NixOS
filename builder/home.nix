@@ -13,20 +13,25 @@
     home.homeDirectory = "/home/USER_NAME";
     home.stateVersion = "23.05"; # Do not change value.
 
-
 # The home.packages option allows you to install Nix packages into your
 # environment.
         home.packages = with pkgs; [
         google-chrome
             flatpak
-            numlockx
             docker
+            cglm
+            vscode
+            yarn
+            burpsuite
+            gimp
+            numlockx
+            glfw
+            mesa
             bear
             lsof
             direnv
             jupyter
             xdotool
-            jetbrains.idea-ultimate
             libxcrypt
             i3lock-color
             dunst
@@ -36,7 +41,6 @@
             imagemagick
             nix-ld
             bat
-            openjdk17
             libtool
             maven
             ncurses
