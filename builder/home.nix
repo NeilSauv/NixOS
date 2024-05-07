@@ -18,7 +18,10 @@
         home.packages = with pkgs; [
         google-chrome
             flatpak
+            pstree
             docker
+            xdotool
+            jq
             cglm
             vscode
             yarn
@@ -35,6 +38,7 @@
             libxcrypt
             i3lock-color
             dunst
+            openjdk22
             nodejs
             libnotify
             netcat
@@ -152,8 +156,8 @@
     };
 
     home.sessionVariables = {
-        EDITOR = "vim";
-        JAVA_HOME = "${pkgs.openjdk17}";
+        JAVA_HOME = "${pkgs.openjdk22}";
+        EDITOR = "code";
     };
 
 }

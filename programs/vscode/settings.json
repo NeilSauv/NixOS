@@ -1,0 +1,46 @@
+{
+    "workbench.editorAssociations": {
+        "*.bmp": "luna.editor",
+        "*.png": "luna.editor"
+    },
+    "vim.commandLineModeKeyBindings": [],
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        }
+    ],
+     "editor.rulers": [
+        80
+    ],
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "files.insertFinalNewline": true,
+    "editor.autoIndent": "full",
+    "editor.wordWrap": "off",
+    "editor.scrollBeyondLastLine": false,
+    "editor.mouseWheelZoom": true,
+    "editor.folding": true,
+    "editor.cursorBlinking": "solid",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.lineNumbers": "relative",
+    "vim.useSystemClipboard": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.formatOnPaste": true
+}

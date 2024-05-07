@@ -1,0 +1,30 @@
+[
+    {
+        "key": "capslock",
+        "command": "extension.vim_escape"
+    },
+    {
+        "key": ", t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "vim.mode != 'Insert'"
+    },
+    {
+        "key": ", f",
+        "command": "editor.action.quickFix",
+        "when": "vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "editor.action.showHover",
+        "when": "vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": ", i",
+        "command": "editor.action.formatDocument",
+        "when": "vim.mode != 'Insert'"
+    }
+]
