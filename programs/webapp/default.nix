@@ -35,6 +35,7 @@ let
     { name = "Notion"; url = "https://www.notion.so"; iconName = ./notion.png; }
     { name = "ChatGPT"; url = "https://chat.openai.com"; iconName = ./chatgpt.png; }
     { name = "Quizlet"; url = "https://quizlet.com"; iconName = ./quizlet.png; }
+    { name = "WhatsApp"; url = "https://web.whatsapp.com/"; iconName = ./whatsapp.png; }
   ];
 
   apps = lib.lists.foldl' (acc: app: acc // { "${app.name}" = makeWebApp app; }) {} webApps;
