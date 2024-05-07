@@ -224,8 +224,7 @@ in {
 
                 interval = 1;
 
-                date = "%H:%M";
-                date-alt = "%a, %d %b %G";       
+                date = " %H:%M - %d/%m/%Y";
 
                 format = "<label>";
                 format-prefix = " ";
