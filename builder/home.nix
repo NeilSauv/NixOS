@@ -23,6 +23,7 @@
             xdotool
             jq
             cglm
+            python3.pkgs.ipykernel
             vscode
             yarn
             burpsuite

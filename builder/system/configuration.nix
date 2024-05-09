@@ -61,6 +61,9 @@
     hardware.bluetooth.enable = true;
     hardware.enableRedistributableFirmware = true;
 
+    services.logind.extraConfig = ''
+      HandlePowerKey=suspend
+    '';
     services.gvfs.enable = true;
     services.printing.enable = true;
     services.blueman.enable = true;
@@ -98,10 +101,17 @@
     services.xserver = {
       enable = true;
       displayManager.lightdm.enable = true;
+      displayManager.lightdm.autoLogin.enable = false;
       desktopManager.xterm.enable = false;
+      displayManager.lightdm.extraConfig = ''
+        [Seat:*]
+        lock-session-suspend = true
+        '';
       windowManager.i3.enable = true;
       xkb.layout = "us";
     };
+
+
 
     services.openssh.enable = true;
 

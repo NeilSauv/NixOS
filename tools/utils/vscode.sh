@@ -48,7 +48,7 @@ echo -e "\e]2;$title\007"
 i3-msg [title=$title] move container to workspace "VSCode" > /dev/null
 instances=($(pstree | grep -oP '[| \\/-]*\s+\K\d+(?=\s+\w+\s+.*[/]vscode/code --type=renderer)'))
 code --new-window "$1"
-sleep 0.3
+sleep 0.8
 
 window_after=$(xdotool search --onlyvisible --class "Code")
 vs_id=$window_after
