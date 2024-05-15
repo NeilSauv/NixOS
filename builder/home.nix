@@ -21,6 +21,7 @@
             pstree
             docker
             xdotool
+            openvpn
             jq
             cglm
             python3.pkgs.ipykernel
