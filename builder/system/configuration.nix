@@ -13,12 +13,11 @@
       '';
     };
 
-    boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm" "bbswitch" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
+    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" ];
 
 
     nixpkgs.config.allowBroken = true;
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.nvidia.acceptLicense = true;
 
     networking.firewall = {
       enable = true;
@@ -82,8 +81,6 @@
     sound.enable = true;
 
     security.rtkit.enable = true;
-
-    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     users.users.USER_NAME = {
       isNormalUser = true;

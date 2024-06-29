@@ -17,14 +17,37 @@
 # environment.
         home.packages = with pkgs; [
         google-chrome
-            flatpak
+            texlive.combined.scheme-basic
+            sbt
+            wine
+            rstudio
+            nsis
+            android-tools
+            android-studio
+            ovftool
+            sway
+            wayland
+            wireshark
+            openjdk17
+            waybar
+            wofi
+            xorg.xhost
             pstree
+            patchelf
+            nix-index
+            steam-run
+            libreoffice-fresh
+            saleae-logic-2
             docker
+            nextcloud-client
             xdotool
+            yara
+            nextcloud29
             openvpn
             jq
             cglm
             python3.pkgs.ipykernel
+            virtualbox
             vscode
             yarn
             burpsuite
@@ -40,12 +63,11 @@
             libxcrypt
             i3lock-color
             dunst
-            openjdk22
+            jetbrains.idea-ultimate
             nodejs
             libnotify
             netcat
             imagemagick
-            nix-ld
             bat
             libtool
             maven
@@ -105,7 +127,6 @@
             gnome3.nautilus
             gnupg
             appimage-run
-            virtualbox
             pinentry
             gcc
             gnumake

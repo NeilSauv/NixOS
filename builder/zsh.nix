@@ -45,7 +45,7 @@
         alias lss='tail -n +1 *'
         alias rtc='~/.dotfiles/tools/utils/rtc -o result *.tig; ./result'
         alias tools='cd ~/.dotfiles/tools/utils'
-        alias nixvim='vs ~/.dotfiles/programs/vim/default.nix'
+        alias nixvim='vim ~/.dotfiles/programs/vim/default.nix'
         alias screen='xrandr --output HDMI-A-0 --mode 1920x1080 && xrandr --output DisplayPort-0 --mode 1280x1024 --auto --output HDMI-A-1 --auto --right-of DisplayPort-0 --output HDMI-A-0 --right-of HDMI-A-1 && xrandr --output DP-1 --mode 1280x1024 --auto --output HDMI-2 --auto --right-of DP-1 --output HDMI-1 --right-of HDMI-2'
         alias cpy='~/.dotfiles/tools/utils/copy.sh'
         alias pst='~/.dotfiles/tools/utils/paste.sh'
@@ -58,16 +58,19 @@
         alias cleanupdate='~/.dotfiles/apply-user.sh USER_NAME -d && up'
         alias up='source ~/.zshrc'
         alias sysupdate='sudo ~/.dotfiles/apply-system.sh USER_NAME'
-        alias nixconfig='vs ~/.dotfiles/builder/system/configuration.nix'
+        alias nixcyber='vim ~/.dotfiles/builder/cybersec-profile.nix'
+        alias archi='python3 ~/.dotfiles/tools/utils/archi.py'
+        alias cyber='~/.dotfiles/tools/utils/toggle-cybersec.sh'
+        alias nixconfig='vim ~/.dotfiles/builder/system/configuration.nix'
         alias initclangc='cp ~/.dotfiles/tools/utils/clang-format-c .clang-format'
         alias dwn='cd ~/Downloads'
         alias prg='cd ~/.dotfiles/programs/'
         alias mk='clear; make'
-        alias nixsh='vs ~/.dotfiles/builder/zsh.nix'
+        alias nixsh='vim ~/.dotfiles/builder/zsh.nix'
         alias vs='~/.dotfiles/tools/utils/vscode.sh'
         alias dtf='cd ~/.dotfiles'
-        alias nixi3='vs ~/.dotfiles/programs/i3/default.nix'
-        alias nixhome='vs ~/.dotfiles/builder/home.nix'
+        alias nixi3='vim ~/.dotfiles/programs/i3/default.nix'
+        alias nixhome='vim ~/.dotfiles/builder/home.nix'
         alias val='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
         alias setdir='~/.dotfiles/tools/utils/setdir.sh'
         alias ddir='. ~/.dotfiles/tools/utils/ddir.sh'
@@ -101,8 +104,10 @@
 
         FUNCNEST=1000
         eval "$(direnv hook zsh)"
-        export JAVA_HOME=${pkgs.openjdk22}
+        export JAVA_HOME=${pkgs.jdk17}
+        export JDK_HOME=${pkgs.jdk17}
         export NODEJS_HOME=${pkgs.nodejs}
+        export PATH=$JAVA_HOME/bin:$PATH
     '';
   };
 

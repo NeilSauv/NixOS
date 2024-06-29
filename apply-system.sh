@@ -23,7 +23,7 @@ mv ".git" ".gitsave"
 sed -e "s/USER_NAME/$NAME_USER/g" "builder/flake.nix" > "flake.nix"
 
 echo "Updating flake inputs..."
-sudo nix flake update
+#sudo nix flake update
 
 (./builder/system/install.sh)
 
