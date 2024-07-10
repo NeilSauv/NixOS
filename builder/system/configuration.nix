@@ -106,6 +106,7 @@
         '';
       windowManager.i3.enable = true;
       xkb.layout = "us";
+      xkbOptions = "caps:escape";
     };
 
 

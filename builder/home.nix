@@ -23,12 +23,12 @@
             rstudio
             nsis
             android-tools
-            android-studio
+            androidStudioPackages.dev
             ovftool
             sway
             wayland
             wireshark
-            openjdk17
+            openjdk22
             waybar
             wofi
             xorg.xhost
