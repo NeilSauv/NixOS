@@ -59,6 +59,8 @@
         alias up='source ~/.zshrc'
         alias sysupdate='sudo ~/.dotfiles/apply-system.sh USER_NAME'
         alias nixcyber='vim ~/.dotfiles/builder/cybersec-profile.nix'
+        alias svginvert='python3 ~/.dotfiles/tools/utils/svginverter.py'
+        alias pngtosvg='sh ~/.dotfiles/tools/utils/png_to_svg.sh'
         alias archi='python3 ~/.dotfiles/tools/utils/archi.py'
         alias cyber='~/.dotfiles/tools/utils/toggle-cybersec.sh'
         alias nixconfig='vim ~/.dotfiles/builder/system/configuration.nix'

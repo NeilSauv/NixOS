@@ -21,6 +21,10 @@
             sbt
             wine
             rstudio
+            potrace
+            inkscape
+            autotrace
+            netdiscover
             nsis
             android-tools
             androidStudioPackages.dev
