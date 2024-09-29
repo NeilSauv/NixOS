@@ -13,8 +13,14 @@
       '';
     };
 
-    boot.kernelModules = [ "vboxdrv" "vboxnetflt" "vboxnetadp" ];
+    boot.kernelModules = [ "xhci_hcd" "usb_storage" "nvme"];
 
+
+    hardware.enableAllFirmware = true;  # Active tous les firmwares disponibles
+    hardware.firmware = [ pkgs.linux-firmware ];
+    services.udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="block", KERNEL=="nvme*", ATTR{queue/scheduler}="none"
+    '';
 
     nixpkgs.config.allowBroken = true;
     nixpkgs.config.allowUnfree = true;
@@ -103,13 +109,14 @@
       displayManager.lightdm.extraConfig = ''
         [Seat:*]
         lock-session-suspend = true
-        '';
+      '';
       windowManager.i3.enable = true;
       xkb.layout = "us";
       xkbOptions = "caps:escape";
     };
 
 
+  services.teamviewer.enable = true;
 
     services.openssh.enable = true;
 

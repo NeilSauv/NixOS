@@ -17,13 +17,19 @@
 # environment.
         home.packages = with pkgs; [
         google-chrome
+            teamviewer
             texlive.combined.scheme-basic
             sbt
+            zeal
+            prelink
+            ntfs3g
             wine
             rstudio
             potrace
+            sublime3
             inkscape
             autotrace
+            anbox
             netdiscover
             nsis
             android-tools
