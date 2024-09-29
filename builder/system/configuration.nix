@@ -15,7 +15,6 @@
 
     boot.kernelModules = [ "xhci_hcd" "usb_storage" "nvme"];
 
-
     hardware.enableAllFirmware = true;  # Active tous les firmwares disponibles
     hardware.firmware = [ pkgs.linux-firmware ];
     services.udev.extraRules = ''
@@ -56,7 +55,8 @@
       LC_TELEPHONE = "fr_FR.UTF-8";
       LC_TIME = "fr_FR.UTF-8";
     };
-    environment.systemPackages = with pkgs; [ mesa glfw ];
+    environment.systemPackages = with pkgs; [ mesa glfw tigervnc ];
+
     hardware.opengl = {
       enable = true;
       driSupport32Bit = true;
@@ -115,10 +115,29 @@
       xkbOptions = "caps:escape";
     };
 
-
-  services.teamviewer.enable = true;
-
     services.openssh.enable = true;
+
+    # Configuration du serveur VNC
+    systemd.user.services.vncserver = {
+      enable = true;
+      description = "TigerVNC Server";
+      serviceConfig = {
+        ExecStart = "${pkgs.tigervnc}/bin/vncserver :1 -localhost -geometry 1920x1080 -depth 24";
+        ExecStop = "${pkgs.tigervnc}/bin/vncserver -kill :1";
+        Restart = "on-failure";
+      };
+      wantedBy = [ "default.target" ];
+    };
+
+    # Exécute un script personnalisé pour démarrer l'environnement de bureau VNC
+    systemd.user.services.vnc-xstartup = {
+      enable = true;
+      description = "VNC xstartup script";
+      serviceConfig = {
+        ExecStart = "${pkgs.bash}/bin/bash -c 'if [ ! -f $HOME/.vnc/xstartup ]; then echo \"#!/usr/bin/env bash\\nexec i3\" > $HOME/.vnc/xstartup; chmod +x $HOME/.vnc/xstartup; fi'";
+      };
+      wantedBy = [ "default.target" ];
+    };
 
     system.stateVersion = "23.05";
 

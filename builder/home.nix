@@ -17,8 +17,8 @@
 # environment.
         home.packages = with pkgs; [
         google-chrome
-            teamviewer
             texlive.combined.scheme-basic
+            openssh
             sbt
             zeal
             prelink
