@@ -101,10 +101,10 @@
     programs.light.enable = true;
     services.displayManager.defaultSession = "none+i3";
 
+    services.displayManager.autoLogin.enable = false;
     services.xserver = {
       enable = true;
       displayManager.lightdm.enable = true;
-      displayManager.lightdm.autoLogin.enable = false;
       desktopManager.xterm.enable = false;
       displayManager.lightdm.extraConfig = ''
         [Seat:*]
@@ -112,7 +112,7 @@
       '';
       windowManager.i3.enable = true;
       xkb.layout = "us";
-      xkbOptions = "caps:escape";
+      xkb.options = "caps:escape";
     };
 
     services.openssh.enable = true;

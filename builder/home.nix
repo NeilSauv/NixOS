@@ -23,7 +23,6 @@
             zeal
             prelink
             ntfs3g
-            wine
             rstudio
             potrace
             sublime3
@@ -33,11 +32,8 @@
             netdiscover
             nsis
             android-tools
-            androidStudioPackages.dev
             ovftool
             sway
-            wayland
-            wireshark
             openjdk22
             waybar
             wofi
@@ -45,13 +41,9 @@
             pstree
             patchelf
             nix-index
-            steam-run
             libreoffice-fresh
-            saleae-logic-2
             docker
-            nextcloud-client
             xdotool
-            yara
             nextcloud29
             openvpn
             jq
